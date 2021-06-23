@@ -1,0 +1,5 @@
+@import "../node_modules/normalize-scss/sass/normalize";
+@include normalize();
+
+//base
+@import "sass/base/base";
