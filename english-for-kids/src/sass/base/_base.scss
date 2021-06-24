@@ -1,5 +1,14 @@
+html {
+  font-size: 10px;
+}
+
 body {
+  @extend %font-main;
+  @include font($size: 1.5rem);
   background-color: #97a771;
   background-image: url('./assets/Confetti-Doodles.svg');
   background-attachment: fixed;
+  min-height: 100vh;
 }
+
+
