@@ -6,7 +6,7 @@ export class NavigationList extends BaseComponent {
   private readonly state: [] | CardsModel[];
 
   constructor(private parentNode: HTMLElement, state: [] | CardsModel[]) {
-    super(parentNode, 'ul', ['navigation__list']);
+    super(parentNode, 'ul', ['navigation__list', 'green']);
     this.state = state;
     this.renderList();
   }
