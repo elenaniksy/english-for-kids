@@ -1,5 +1,4 @@
 .app__container {
   @include flex($direction: column, $justify: center);
   width: 100%;
-  max-width: 80vw;
 }

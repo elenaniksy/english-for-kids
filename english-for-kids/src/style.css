@@ -439,8 +439,7 @@ li {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  max-width: 80vw; }
+  width: 100%; }
 
 .header {
   display: flex;
@@ -448,7 +447,9 @@ li {
   justify-content: space-between;
   align-items: center;
   background-color: #EBF5CF;
-  border-radius: 5px; }
+  border-radius: 5px;
+  width: 98%;
+  height: 45px; }
 
 .navigation__list {
   display: block;
@@ -512,8 +513,8 @@ li {
   display: flex;
   align-items: center;
   position: fixed;
-  top: 20px;
-  left: 20px;
+  top: 9px;
+  left: 30px;
   width: 26px;
   height: 26px;
   cursor: pointer;
