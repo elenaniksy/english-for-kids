@@ -1,3 +1,8 @@
+* {
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
 html {
   font-size: 10px;
 }
@@ -5,10 +10,14 @@ html {
 body {
   @extend %font-main;
   @include font($size: 1.5rem);
+  color: $dark;
   background-color: #97a771;
   background-image: url('./assets/Confetti-Doodles.svg');
   background-attachment: fixed;
   min-height: 100vh;
 }
 
+li {
+  list-style: none;
+}
 
