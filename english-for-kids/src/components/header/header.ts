@@ -8,9 +8,12 @@ export class Header extends BaseComponent {
 
   private readonly switcher: Switcher;
 
-  constructor(private parentNode: HTMLElement, state: [] | CardsModel[]) {
+  private mode: string;
+
+  constructor(private parentNode: HTMLElement, state: [] | CardsModel[], mode: string) {
     super(parentNode, 'header', ['header']);
-    this.navigation = new Navigation(this.element, state);
-    this.switcher = new Switcher(this.element);
+    this.mode = mode;
+    this.navigation = new Navigation(this.element, state, mode);
+    this.switcher = new Switcher(this.element, mode);
   }
 }

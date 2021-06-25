@@ -1,4 +1,5 @@
 import { BaseComponent } from '../BaseComponent';
+import { NavigationList } from './navigationList';
 
 export class Switcher extends BaseComponent {
   private readonly input: HTMLInputElement;
@@ -7,10 +8,12 @@ export class Switcher extends BaseComponent {
 
   private readonly span: HTMLSpanElement;
 
-  constructor(private parentNode: HTMLElement) {
-    super(parentNode, 'div', ['switch-button', 'green']);
+  private mode: string;
+
+  constructor(private parentNode: HTMLElement, mode: string) {
+    super(parentNode, 'div', ['switch-button']);
+    this.mode = mode;
     this.input = document.createElement('input');
-    this.input.checked = true;
     this.input.type = 'checkbox';
     this.input.classList.add('switch-button-checkbox');
     this.label = document.createElement('label');
@@ -20,17 +23,35 @@ export class Switcher extends BaseComponent {
     this.span.classList.add('switch-button-label-span');
     this.span.innerHTML = 'Train';
     this.label.append(this.span);
-    this.element.append(this.input, this.label);
 
     this.input.onchange = (event) => {
       // @ts-ignore
       if (event.target.checked) {
-        this.element.classList.remove('red');
-        this.element.classList.add('green');
+        this.removeClass('red');
+        this.addClass('green');
+        this.mode = 'train';
       } else {
-        this.element.classList.remove('green');
-        this.element.classList.add('red');
+        this.removeClass('green');
+        this.addClass('red');
+        this.mode = 'play';
       }
     };
+    this.render(this.mode);
+  }
+
+  render(mode: string): void {
+    if (mode === 'train') {
+      this.input.checked = true;
+      this.removeClass('red');
+      this.addClass('green');
+    }
+
+    if (mode === 'play') {
+      this.input.checked = false;
+      this.removeClass('green');
+      this.addClass('red');
+    }
+
+    this.element.append(this.input, this.label);
   }
 }

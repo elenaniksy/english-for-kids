@@ -9,7 +9,7 @@ export class MenuToggle extends BaseComponent {
 
   private readonly label: HTMLLabelElement;
 
-  constructor(private parentNode: HTMLElement, state: [] | CardsModel[]) {
+  constructor(private parentNode: HTMLElement, state: [] | CardsModel[], mode: string) {
     super(parentNode, 'div', ['menu-toggle']);
     this.input = document.createElement('input');
     this.input.id = 'menu__toggle';
@@ -19,7 +19,7 @@ export class MenuToggle extends BaseComponent {
     this.label.htmlFor = 'menu__toggle';
     this.label.innerHTML = `<span></span>`;
     this.render([this.input, this.label]);
-    this.navigationList = new NavigationList(this.element, state);
+    this.navigationList = new NavigationList(this.element, state, mode);
   }
 
   render(elements: Node[] = []): void {
