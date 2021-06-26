@@ -1,8 +1,19 @@
 import { BaseComponent } from '../BaseComponent';
 import { CardsModel } from '../shared/cardsModel';
+import { cardField } from './cardField';
 
 export class MainContainer extends BaseComponent {
-  constructor(private parentNode: HTMLElement, state: [] | CardsModel[]) {
+  private readonly mode: string;
+
+  private state: [] | CardsModel[];
+
+  private cardField: cardField;
+
+  constructor(private parentNode: HTMLElement, state: [] | CardsModel[], mode: string) {
     super(parentNode, 'div', ['main-container']);
+    this.mode = mode;
+    this.state = state;
+    this.cardField = new cardField(this.element);
+    this.cardField.addCards(this.state);
   }
 }
