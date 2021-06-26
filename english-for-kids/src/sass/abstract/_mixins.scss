@@ -1,11 +1,4 @@
-@mixin font(
-  $size,
-  $height: auto,
-  $weight: 400,
-  $style: normal,
-  $spacing: 0,
-  $align: left
-) {
+@mixin font($size, $height: auto, $weight: 400, $style: normal, $spacing: 0, $align: left) {
   font-size: $size;
   font-style: $style;
   font-weight: $weight;
@@ -14,12 +7,7 @@
   text-align: $align;
 }
 
-@mixin flex(
-  $display: flex,
-  $direction: row,
-  $justify: space-between,
-  $align: center
-) {
+@mixin flex($display: flex, $direction: row, $justify: space-between, $align: center) {
   display: $display;
   flex-direction: $direction;
   justify-content: $justify;
