@@ -1,0 +1,7 @@
+.main-container {
+  @include flex($direction: column, $justify: center, $align: center);
+  background-color: rgba(235, 245, 207, .7);
+  border-radius: 5px;
+  margin: 20px 0 0 0;
+  width: 98%;
+}
