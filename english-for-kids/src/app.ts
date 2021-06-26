@@ -40,10 +40,12 @@ export class App extends BaseComponent {
           this.mode = MODE.train;
           this.header?.setMode(this.mode);
           this.header?.changeSwitcher();
+          this.mainContainer?.changeMode(this.mode);
         } else {
           this.mode = MODE.play;
           this.header?.setMode(this.mode);
           this.header?.changeSwitcher();
+          this.mainContainer?.changeMode(this.mode);
         }
       }
     };

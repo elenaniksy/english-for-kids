@@ -1,5 +1,6 @@
 import { BaseComponent } from '../BaseComponent';
 import { CardsModel } from '../shared/cardsModel';
+import { Card } from '../card/card';
 
 export class CardField extends BaseComponent {
   private cards: CardsModel[] = [];
@@ -13,10 +14,10 @@ export class CardField extends BaseComponent {
     this.element.innerHTML = '';
   }
 
-  addCards(cards: CardsModel[]): void {
+  addCardsCategory(cards: CardsModel[], mode: string): void {
     this.cards = cards;
     this.cards.forEach((card) => {
-      console.log(card.category);
+      new Card(this.element).renderCategory(card, mode);
     });
   }
 }
