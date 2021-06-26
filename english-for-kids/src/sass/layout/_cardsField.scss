@@ -1,0 +1,7 @@
+.cards-field {
+  @include flex($direction: row, $justify: space-around, $align: center);
+  flex-wrap: wrap;
+  width: 80%;
+  padding: 30px 0;
+  perspective: 35rem;
+}
