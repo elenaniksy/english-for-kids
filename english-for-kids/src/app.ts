@@ -48,11 +48,13 @@ export class App extends BaseComponent {
       }
       this.start(this.state, this.mode);
     };
-
+    this.mainContainer = new MainContainer(this.element, this.state, this.mode);
     return data;
   }
 
   async start(state: [] | CardsModel[], mode: string): Promise<void> {
-    this.mainContainer = new MainContainer(this.element, state, mode);
+    if (this.mainContainer) {
+      return;
+    }
   }
 }
