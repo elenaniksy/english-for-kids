@@ -13,7 +13,27 @@ export class Header extends BaseComponent {
   constructor(private parentNode: HTMLElement, state: [] | CardsModel[], mode: string) {
     super(parentNode, 'header', ['header']);
     this.mode = mode;
-    this.navigation = new Navigation(this.element, state, mode);
-    this.switcher = new Switcher(this.element, mode);
+    this.navigation = new Navigation(this.element, state, this.mode);
+    this.switcher = new Switcher(this.element, this.mode);
+  }
+
+  getMode() {
+    return this.mode;
+  }
+
+  setMode(mode: string) {
+    this.mode = mode;
+  }
+
+  changeSwitcher() {
+    if (this.mode === 'train') {
+      this.switcher.removeClass('red');
+      this.switcher.addClass('green');
+      this.navigation.changeMenuColor(this.mode);
+    } else {
+      this.switcher.removeClass('green');
+      this.switcher.addClass('red');
+      this.navigation.changeMenuColor(this.mode);
+    }
   }
 }

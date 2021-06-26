@@ -9,4 +9,8 @@ export class Navigation extends BaseComponent {
     super(parentNode, 'nav', ['navigation']);
     this.menuToggle = new MenuToggle(this.element, state, mode);
   }
+
+  changeMenuColor(change: string): void {
+    this.menuToggle.changeColor(change);
+  }
 }

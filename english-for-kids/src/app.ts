@@ -23,6 +23,7 @@ export class App extends BaseComponent {
     this.header = null;
     this.mainContainer = null;
     this.state = [];
+    this.init();
   }
 
   async init(): Promise<void> {
@@ -30,11 +31,28 @@ export class App extends BaseComponent {
     const data = response.json();
     this.state = await data;
     this.header = new Header(this.element, this.state, this.mode);
-    this.start(this.state);
+    this.header.element.onchange = (event) => {
+      // @ts-ignore
+      const targetId = event.target.id;
+      if (targetId === 'switcher') {
+        // @ts-ignore
+        if (event.target.checked) {
+          this.mode = MODE.train;
+          this.header?.setMode(this.mode);
+          this.header?.changeSwitcher();
+        } else {
+          this.mode = MODE.play;
+          this.header?.setMode(this.mode);
+          this.header?.changeSwitcher();
+        }
+      }
+      this.start(this.state, this.mode);
+    };
+
     return data;
   }
 
-  start(state: [] | CardsModel[]): void {
-    this.mainContainer = new MainContainer(this.element, state);
+  async start(state: [] | CardsModel[], mode: string): Promise<void> {
+    this.mainContainer = new MainContainer(this.element, state, mode);
   }
 }

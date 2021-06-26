@@ -30,16 +30,4 @@ export class NavigationList extends BaseComponent {
       this.element.append(link.element);
     });
   }
-
-  changeColor(mode: string) {
-    if (this.mode === 'train') {
-      this.removeClass('red');
-      this.addClass('green');
-    }
-
-    if (this.mode === 'play') {
-      this.removeClass('green');
-      this.addClass('red');
-    }
-  }
 }
