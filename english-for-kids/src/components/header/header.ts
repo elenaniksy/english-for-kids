@@ -17,15 +17,15 @@ export class Header extends BaseComponent {
     this.switcher = new Switcher(this.element, this.mode);
   }
 
-  getMode() {
+  getMode(): string {
     return this.mode;
   }
 
-  setMode(mode: string) {
+  setMode(mode: string): void {
     this.mode = mode;
   }
 
-  changeSwitcher() {
+  changeSwitcher(): void {
     if (this.mode === 'train') {
       this.switcher.removeClass('red');
       this.switcher.addClass('green');

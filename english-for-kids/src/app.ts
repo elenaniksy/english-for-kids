@@ -46,7 +46,6 @@ export class App extends BaseComponent {
           this.header?.changeSwitcher();
         }
       }
-      this.start(this.state, this.mode);
     };
     this.mainContainer = new MainContainer(this.element, this.state, this.mode);
     return data;

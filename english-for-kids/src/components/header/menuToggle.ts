@@ -17,7 +17,7 @@ export class MenuToggle extends BaseComponent {
     this.label = document.createElement('label');
     this.label.classList.add('menu__btn');
     this.label.htmlFor = 'menu__toggle';
-    this.label.innerHTML = `<span></span>`;
+    this.label.innerHTML = '<span></span>';
     this.render([this.input, this.label]);
     this.navigationList = new NavigationList(this.element, state, mode);
   }
@@ -26,7 +26,7 @@ export class MenuToggle extends BaseComponent {
     this.element.append(...elements);
   }
 
-  changeColor(mode: string) {
+  changeColor(mode: string): void {
     if (mode === 'train') {
       this.navigationList.removeClass('red');
       this.navigationList.addClass('green');

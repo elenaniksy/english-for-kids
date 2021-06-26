@@ -1,7 +1,7 @@
 import { BaseComponent } from '../BaseComponent';
 import { CardsModel } from '../shared/cardsModel';
 
-export class cardField extends BaseComponent {
+export class CardField extends BaseComponent {
   private cards: CardsModel[] = [];
 
   constructor(private parentNode: HTMLElement) {
