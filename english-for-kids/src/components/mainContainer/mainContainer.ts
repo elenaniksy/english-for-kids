@@ -16,6 +16,9 @@ export class MainContainer extends BaseComponent {
     this.state = state;
     this.cardField = new CardField(this.element);
     this.renderStartCategory();
+    this.element.onclick = (event) => {
+      this.handlerClick(event);
+    };
   }
 
   renderStartCategory() {
@@ -26,5 +29,17 @@ export class MainContainer extends BaseComponent {
   changeMode(mode: string) {
     this.mode = mode;
     this.renderStartCategory();
+  }
+
+  handlerClick(event: MouseEvent) {
+    // @ts-ignore
+    const eventClass = event.target.className.split(' ')[0];
+
+    if (eventClass === 'card__button') {
+      // @ts-ignore
+      const elementId = event.target.id;
+      this.cardField.clear();
+      this.cardField.addCardsItems(this.state, this.mode, elementId);
+    }
   }
 }

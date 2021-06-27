@@ -20,4 +20,15 @@ export class CardField extends BaseComponent {
       new Card(this.element).renderCategory(card, mode);
     });
   }
+
+  addCardsItems(cards: CardsModel[], mode: string, id: string): void {
+    this.cards = cards;
+    this.cards.forEach((card) => {
+      if (card.category === id) {
+        card.items.forEach((it) => {
+          new Card(this.element).renderItem(it, mode);
+        });
+      }
+    });
+  }
 }
