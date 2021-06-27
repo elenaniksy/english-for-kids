@@ -436,6 +436,16 @@ body {
 li {
   list-style: none; }
 
+h3 {
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: auto;
+  letter-spacing: 0;
+  text-align: center;
+  text-transform: capitalize;
+  padding: 10px 0 0 0; }
+
 .switch-button {
   font-size: 1.6rem;
   font-style: normal;
@@ -505,8 +515,22 @@ li {
   transform-style: preserve-3d;
   transition: all 0.5s;
   transform-origin: right;
-  box-shadow: 0 0 0.25rem #2f4858;
   border-radius: 5px; }
+  .card__image {
+    width: 100%;
+    padding: 10px; }
+  .card__button {
+    cursor: pointer;
+    margin: 0 10px;
+    border: none;
+    outline: none;
+    border-radius: 5px; }
+    .card__button:hover {
+      transform: scale(1.05);
+      transition: 0.5s ease-in; }
+    .card__button:active {
+      transform: scale(0.9);
+      color: #2f4858; }
   .card__container {
     display: flex;
     flex-direction: row;
@@ -532,10 +556,7 @@ li {
     border-radius: 5px;
     background-position: center;
     background-size: cover; }
-  .card__front {
-    background-color: #ff63b1; }
   .card__back {
-    background-color: #2cd261;
     transform: rotateY(180deg); }
 
 .app__container {
@@ -568,7 +589,8 @@ li {
   list-style: none;
   text-align: left;
   box-shadow: 1px 0 6px rgba(0, 0, 0, 0.2);
-  transition: 0.5s ease-in; }
+  transition: 0.5s ease-in;
+  z-index: 2; }
 .navigation__item {
   font-size: 2rem;
   font-style: normal;
@@ -584,8 +606,8 @@ li {
   text-transform: capitalize;
   cursor: pointer; }
   .navigation__item:hover {
-    background-color: #ebf5cf;
-    transition: 0.3s ease-in; }
+    background-color: rgba(235, 245, 207, 0.7);
+    transition: 0.5s ease-in; }
   .navigation__item:active {
     color: #2f4858; }
 
@@ -661,5 +683,11 @@ li {
   width: 80%;
   padding: 30px 0;
   perspective: 35rem; }
+
+.column {
+  display: flex;
+  flex-direction: column;
+  justify-content: initial;
+  align-items: initial; }
 
 /*# sourceMappingURL=style.css.map */

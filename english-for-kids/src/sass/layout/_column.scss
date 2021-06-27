@@ -1,0 +1,3 @@
+.column {
+  @include flex($direction: column, $align: initial, $justify: initial);
+}
