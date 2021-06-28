@@ -26,14 +26,7 @@ export class Header extends BaseComponent {
   }
 
   changeSwitcher(): void {
-    if (this.mode === 'train') {
-      this.switcher.removeClass('red');
-      this.switcher.addClass('green');
-      this.navigation.changeMenuColor(this.mode);
-    } else {
-      this.switcher.removeClass('green');
-      this.switcher.addClass('red');
-      this.navigation.changeMenuColor(this.mode);
-    }
+    this.switcher.changeClassMode(this.mode);
+    this.navigation.changeMenuColor(this.mode);
   }
 }

@@ -27,14 +27,6 @@ export class MenuToggle extends BaseComponent {
   }
 
   changeColor(mode: string): void {
-    if (mode === 'train') {
-      this.navigationList.removeClass('red');
-      this.navigationList.addClass('green');
-    }
-
-    if (mode === 'play') {
-      this.navigationList.removeClass('green');
-      this.navigationList.addClass('red');
-    }
+    this.changeClassMode(mode);
   }
 }
