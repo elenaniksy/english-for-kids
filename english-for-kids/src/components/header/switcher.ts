@@ -29,15 +29,12 @@ export class Switcher extends BaseComponent {
   render(mode: string): void {
     if (mode === 'train') {
       this.input.checked = true;
-      this.removeClass('red');
-      this.addClass('green');
     }
 
     if (mode === 'play') {
       this.input.checked = false;
-      this.removeClass('green');
-      this.addClass('red');
     }
+    this.changeClassMode(mode);
     this.element.append(this.input, this.label);
   }
 }

@@ -15,15 +15,7 @@ export class NavigationList extends BaseComponent {
   }
 
   renderList(): void {
-    if (this.mode === 'train') {
-      this.removeClass('red');
-      this.addClass('green');
-    }
-
-    if (this.mode === 'play') {
-      this.removeClass('green');
-      this.addClass('red');
-    }
+    this.changeClassMode(this.mode);
 
     this.state.forEach((item: CardsModel) => {
       const link = new NavigationItem(this.element, item.category);

@@ -27,6 +27,6 @@ export class MenuToggle extends BaseComponent {
   }
 
   changeColor(mode: string): void {
-    this.changeClassMode(mode);
+    this.navigationList.changeClassMode(mode);
   }
 }
