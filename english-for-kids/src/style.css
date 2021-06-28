@@ -525,6 +525,12 @@ h3 {
     border: none;
     outline: none;
     border-radius: 5px; }
+    .card__button_flip {
+      cursor: pointer;
+      margin: 5px;
+      border: none;
+      outline: none;
+      border-radius: 5px; }
     .card__button:hover {
       transform: scale(1.05);
       transition: 0.5s ease-in; }
@@ -556,6 +562,11 @@ h3 {
     border-radius: 5px;
     background-position: center;
     background-size: cover; }
+  .card__front {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: initial;
+    align-items: initial; }
   .card__back {
     transform: rotateY(180deg); }
 

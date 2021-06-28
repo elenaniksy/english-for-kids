@@ -20,6 +20,14 @@
     outline: none;
     border-radius: 5px;
 
+    &_flip {
+      cursor: pointer;
+      margin: 5px;
+      border: none;
+      outline: none;
+      border-radius: 5px;
+    }
+
     &:hover {
       transform: scale(1.05);
       transition: 0.5s ease-in;
@@ -60,6 +68,10 @@
     border-radius: 5px;
     background-position: center;
     background-size: cover;
+  }
+
+  &__front {
+    @include flex($direction: column-reverse, $justify: initial, $align: initial);
   }
 
   &__back {
