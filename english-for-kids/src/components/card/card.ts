@@ -2,6 +2,9 @@ import { BaseComponent } from '../BaseComponent';
 import { CardsModel } from '../shared/cardsModel';
 import { CardModelItem } from '../shared/cardModelItem';
 
+const FLIP_CLASS = 'flipped';
+const TIME = 5;
+
 export class Card extends BaseComponent {
   private readonly cardHolder: HTMLDivElement;
 
@@ -39,39 +42,43 @@ export class Card extends BaseComponent {
     this.cardButton.element.id = `${element.category}`;
 
     this.image.src = `${element.items[0].image}`;
-
-    if (mode === 'train') {
-      this.cardButton.removeClass('red');
-      this.cardButton.addClass('green');
-    }
-
-    if (mode === 'play') {
-      this.cardButton.removeClass('green');
-      this.cardButton.addClass('red');
-    }
-
+    this.cardButton.changeClassMode(mode);
     this.cardHolder.append(this.image, this.cardButton.element);
     this.element.append(this.cardHolder);
   }
 
   renderItem(element: CardModelItem, mode: string) {
+    this.renderFrontSide(element, mode);
+    this.cardFront.append(this.image, this.header.element);
+    this.cardHolder.append(this.cardFront, this.cardBack);
+    this.element.append(this.cardHolder);
+  }
+
+  renderFrontSide(element: CardModelItem, mode: string) {
     this.image.src = `${element.image}`;
     this.header.element.innerHTML = `${element.word}`;
 
-    const backImage = document.createElement('img');
-    backImage.classList.add('card__image');
-    backImage.src = `${element.image}`;
+    this.cardButton.removeClass('card__button');
+    this.cardButton.addClass('card__button_flip');
+    this.cardButton.element.innerHTML = '🔄';
+    this.cardButton.changeClassMode(mode);
 
-    const backHeader = document.createElement('h3');
-    backHeader.innerHTML = `${element.translation}`;
-
-    this.cardFront.append(this.image, this.header.element);
-    this.cardBack.append(backImage, backHeader);
-    this.cardHolder.append(this.cardFront, this.cardBack);
-    this.element.append(this.cardHolder);
-
-    this.element.onclick = () => {
-      this.addClass('flipped');
+    this.cardButton.element.onclick = () => {
+      this.addClass(FLIP_CLASS);
+      this.renderBackSide(element);
+      setTimeout(() => {
+        this.removeClass(FLIP_CLASS);
+      }, TIME * 1000);
     };
+    this.cardFront.append(this.header.element, this.image, this.cardButton.element);
+  }
+
+  renderBackSide(element: CardModelItem) {
+    const img = document.createElement('img');
+    img.src = `${element.image}`;
+    img.classList.add('card__image');
+    const header = document.createElement('h3');
+    header.innerHTML = `${element.translation}`;
+    this.cardBack.append(img, header);
   }
 }
