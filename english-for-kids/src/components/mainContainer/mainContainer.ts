@@ -1,7 +1,6 @@
 import { BaseComponent } from '../BaseComponent';
 import { CardsModel } from '../shared/cardsModel';
 import { CardField } from './cardField';
-import { Card } from '../card/card';
 
 export class MainContainer extends BaseComponent {
   private mode: string;
@@ -21,22 +20,20 @@ export class MainContainer extends BaseComponent {
     };
   }
 
-  renderStartCategory() {
+  renderStartCategory(): void {
     this.cardField.clear();
     this.cardField.addCardsCategory(this.state, this.mode);
   }
 
-  changeMode(mode: string) {
+  changeMode(mode: string): void {
     this.mode = mode;
     this.renderStartCategory();
   }
 
-  handlerClick(event: MouseEvent) {
-    // @ts-ignore
+  handlerClick(event: any): void {
     const eventClass = event.target.className.split(' ')[0];
 
     if (eventClass === 'card__button') {
-      // @ts-ignore
       const elementId = event.target.id;
       this.cardField.clear();
       this.cardField.addCardsItems(this.state, this.mode, elementId);

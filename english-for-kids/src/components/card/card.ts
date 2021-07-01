@@ -35,7 +35,7 @@ export class Card extends BaseComponent {
     this.cardBack.classList.add('card__back');
   }
 
-  renderCategory(element: CardsModel, mode: string) {
+  renderCategory(element: CardsModel, mode: string): void {
     this.cardHolder.classList.add('column');
     this.header.element.innerHTML = `${element.category}`;
     this.cardButton.element.innerHTML = 'Select';
@@ -47,14 +47,14 @@ export class Card extends BaseComponent {
     this.element.append(this.cardHolder);
   }
 
-  renderItem(element: CardModelItem, mode: string) {
+  renderItem(element: CardModelItem, mode: string): void {
     this.renderFrontSide(element, mode);
     this.cardFront.append(this.image, this.header.element);
     this.cardHolder.append(this.cardFront, this.cardBack);
     this.element.append(this.cardHolder);
   }
 
-  renderFrontSide(element: CardModelItem, mode: string) {
+  renderFrontSide(element: CardModelItem, mode: string): void {
     this.image.src = `${element.image}`;
     this.header.element.innerHTML = `${element.word}`;
 
@@ -73,7 +73,7 @@ export class Card extends BaseComponent {
     this.cardFront.append(this.header.element, this.image, this.cardButton.element);
   }
 
-  renderBackSide(element: CardModelItem) {
+  renderBackSide(element: CardModelItem): void {
     const img = document.createElement('img');
     img.src = `${element.image}`;
     img.classList.add('card__image');

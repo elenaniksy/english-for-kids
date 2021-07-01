@@ -28,7 +28,7 @@ export class BaseComponent {
     this.element.classList.remove(classStyle);
   }
 
-  changeClassMode(mode: string) {
+  changeClassMode(mode: string): void {
     if (mode === 'train') {
       this.removeClass('red');
       this.addClass('green');

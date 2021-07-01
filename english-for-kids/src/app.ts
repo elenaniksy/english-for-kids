@@ -31,11 +31,9 @@ export class App extends BaseComponent {
     const data = response.json();
     this.state = await data;
     this.header = new Header(this.element, this.state, this.mode);
-    this.header.element.onchange = (event) => {
-      // @ts-ignore
+    this.header.element.onchange = (event: any) => {
       const targetId = event.target.id;
       if (targetId === 'switcher') {
-        // @ts-ignore
         if (event.target.checked) {
           this.mode = MODE.train;
           this.header?.setMode(this.mode);
@@ -51,11 +49,5 @@ export class App extends BaseComponent {
     };
     this.mainContainer = new MainContainer(this.element, this.state, this.mode);
     return data;
-  }
-
-  async start(state: [] | CardsModel[], mode: string): Promise<void> {
-    if (this.mainContainer) {
-      return;
-    }
   }
 }

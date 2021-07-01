@@ -69,12 +69,9 @@ module.exports = ({ development }) => ({
     new CleanWebpackPlugin({
       cleanStaleWebpackAssets: false,
     }),
-    // favicon пушу сюда, при сборке webpack бросит в корень dist
-    // new CopyPlugin({
-    //   patterns: [
-    //     { from: 'public' },
-    //   ],
-    // }),
+    new CopyPlugin({
+      patterns: [{ from: 'public' }],
+    }),
   ],
   resolve: {
     extensions: ['.ts', '.js'],
