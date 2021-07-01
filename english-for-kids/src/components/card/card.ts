@@ -18,6 +18,8 @@ export class Card extends BaseComponent {
 
   private cardButton: BaseComponent;
 
+  private audio: HTMLAudioElement;
+
   constructor(private parentNode: HTMLElement) {
     super(parentNode, 'div', ['card__container']);
     this.cardHolder = document.createElement('div');
@@ -30,6 +32,7 @@ export class Card extends BaseComponent {
     this.image.classList.add('card__image');
     this.header = new BaseComponent(this.cardHolder, 'h3', ['card__header']);
     this.cardButton = new BaseComponent(this.cardHolder, 'button', ['card__button']);
+    this.audio = new Audio();
 
     this.cardBack = document.createElement('div');
     this.cardBack.classList.add('card__back');
@@ -52,6 +55,12 @@ export class Card extends BaseComponent {
     this.cardFront.append(this.image, this.header.element);
     this.cardHolder.append(this.cardFront, this.cardBack);
     this.element.append(this.cardHolder);
+
+    this.image.onclick = () => {
+      this.audio.src = `${element.audioSrc}`;
+      this.audio.currentTime = 0;
+      this.audio.play();
+    };
   }
 
   renderFrontSide(element: CardModelItem, mode: string): void {
@@ -74,6 +83,7 @@ export class Card extends BaseComponent {
   }
 
   renderBackSide(element: CardModelItem): void {
+    this.cardBack.innerHTML = '';
     const img = document.createElement('img');
     img.src = `${element.image}`;
     img.classList.add('card__image');
