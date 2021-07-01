@@ -1,6 +1,11 @@
+.menu-toggle {
+  position: relative;
+  padding: 23px 0;
+}
+
 #menu__toggle {
   opacity: 0;
-  top: 20px;
+  top: 0;
   left: 20px;
   position: absolute;
 }
@@ -9,6 +14,7 @@
   transform: rotate(45deg);
   background-color: $light;
 }
+
 #menu__toggle:checked ~ .menu__btn > span::before {
   top: 0;
   background-color: $light;
@@ -27,7 +33,7 @@
 .menu__btn {
   display: flex;
   align-items: center;
-  position: fixed;
+  position: absolute;
   top: 9px;
   left: 30px;
   width: 26px;

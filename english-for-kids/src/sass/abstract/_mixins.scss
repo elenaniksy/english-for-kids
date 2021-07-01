@@ -13,3 +13,10 @@
   justify-content: $justify;
   align-items: $align;
 }
+
+
+@mixin media-mobile {
+  @media screen and (max-width: $mobile-width){
+    @content;
+  }
+}
