@@ -65,7 +65,16 @@ export class Card extends BaseComponent {
     }
 
     if (mode === 'play') {
-      console.log('play');
+      this.renderPlayCardMode(element, mode);
+      this.cardHolder.classList.add('column');
+      this.cardHolder.append(this.image, this.cardButton.element);
+      this.element.append(this.cardHolder);
+
+      this.cardButton.element.onclick = () => {
+        this.audio.src = `${element.audioSrc}`;
+        this.audio.currentTime = 0;
+        this.audio.play();
+      };
     }
   }
 
@@ -96,5 +105,14 @@ export class Card extends BaseComponent {
     const header = document.createElement('h3');
     header.innerHTML = `${element.translation}`;
     this.cardBack.append(img, header);
+  }
+
+  renderPlayCardMode(element: CardModelItem, mode: string): void {
+    this.image.src = `${element.image}`;
+    this.image.classList.add('card__image');
+    this.cardButton.element.innerHTML = 'Repeat';
+    this.cardButton.removeClass('card__button');
+    this.cardButton.addClass('card__button_repeat');
+    this.cardButton.changeClassMode(mode);
   }
 }
