@@ -22,11 +22,13 @@ export class CardField extends BaseComponent {
   }
 
   addCardsItems(cards: CardsModel[], mode: string, id: string): void {
+    this.clear();
     this.cards = cards;
+
     this.cards.forEach((card) => {
       if (card.category === id) {
-        card.items.forEach((it) => {
-          new Card(this.element).renderItem(it, mode);
+        card.items.forEach((item) => {
+          new Card(this.element).renderItem(item, mode);
         });
       }
     });

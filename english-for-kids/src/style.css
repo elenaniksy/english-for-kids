@@ -446,6 +446,10 @@ h3 {
   text-transform: capitalize;
   padding: 10px 0 0 0; }
 
+a {
+  text-decoration: none;
+  color: #191d0e; }
+
 .switch-button {
   font-size: 1.6rem;
   font-style: normal;

@@ -51,16 +51,22 @@ export class Card extends BaseComponent {
   }
 
   renderItem(element: CardModelItem, mode: string): void {
-    this.renderFrontSide(element, mode);
-    this.cardFront.append(this.image, this.header.element);
-    this.cardHolder.append(this.cardFront, this.cardBack);
-    this.element.append(this.cardHolder);
+    if (mode === 'train') {
+      this.renderFrontSide(element, mode);
+      this.cardFront.append(this.image, this.header.element);
+      this.cardHolder.append(this.cardFront, this.cardBack);
+      this.element.append(this.cardHolder);
 
-    this.image.onclick = () => {
-      this.audio.src = `${element.audioSrc}`;
-      this.audio.currentTime = 0;
-      this.audio.play();
-    };
+      this.image.onclick = () => {
+        this.audio.src = `${element.audioSrc}`;
+        this.audio.currentTime = 0;
+        this.audio.play();
+      };
+    }
+
+    if (mode === 'play') {
+      console.log('play');
+    }
   }
 
   renderFrontSide(element: CardModelItem, mode: string): void {

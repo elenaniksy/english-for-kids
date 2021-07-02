@@ -27,6 +27,7 @@ export class App extends BaseComponent {
   }
 
   async init(): Promise<void> {
+    this.element.innerHTML = '';
     const response = await fetch('./cards.json');
     const data = response.json();
     this.state = await data;
@@ -47,7 +48,15 @@ export class App extends BaseComponent {
         }
       }
     };
-    this.mainContainer = new MainContainer(this.element, this.state, this.mode);
+    await this.renderMainContainer(this.element, this.state, this.mode);
     return data;
+  }
+
+  renderMainContainer(element: HTMLElement, state: CardsModel[], mode: string) {
+    this.mainContainer = new MainContainer(element, state, mode);
+  }
+
+  renderCards(category: string): void {
+    this.mainContainer?.renderCardsByCategory(category);
   }
 }

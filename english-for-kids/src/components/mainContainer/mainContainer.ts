@@ -39,4 +39,10 @@ export class MainContainer extends BaseComponent {
       this.cardField.addCardsItems(this.state, this.mode, elementId);
     }
   }
+
+  renderCardsByCategory(category: string): void {
+    this.state.forEach((cat) =>
+      cat.category === category ? this.cardField.addCardsItems(this.state, this.mode, category) : null,
+    );
+  }
 }
