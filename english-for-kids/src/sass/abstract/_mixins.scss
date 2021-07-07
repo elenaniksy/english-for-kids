@@ -14,9 +14,8 @@
   align-items: $align;
 }
 
-
 @mixin media-mobile {
-  @media screen and (max-width: $mobile-width){
+  @media screen and (max-width: $mobile-width) {
     @content;
   }
 }

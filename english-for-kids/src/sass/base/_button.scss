@@ -1,5 +1,6 @@
 .button {
-  &__start, &__restart {
+  &__start,
+  &__restart {
     cursor: pointer;
     outline: none;
     border: none;
