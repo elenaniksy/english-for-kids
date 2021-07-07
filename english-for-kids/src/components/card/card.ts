@@ -12,7 +12,7 @@ export class Card extends BaseComponent {
 
   private readonly cardBack: HTMLDivElement;
 
-  private image: HTMLImageElement;
+  private readonly image: HTMLImageElement;
 
   private header: BaseComponent;
 
@@ -50,7 +50,7 @@ export class Card extends BaseComponent {
     this.element.append(this.cardHolder);
   }
 
-  renderItem(element: CardModelItem, mode: string): void {
+  renderItem(element: CardModelItem, mode: string): HTMLDivElement {
     if (mode === 'train') {
       this.renderFrontSide(element, mode);
       this.cardFront.append(this.image, this.header.element);
@@ -66,16 +66,11 @@ export class Card extends BaseComponent {
 
     if (mode === 'play') {
       this.renderPlayCardMode(element, mode);
-      this.cardHolder.classList.add('column');
+      this.cardHolder.id = element.word;
       this.cardHolder.append(this.image, this.cardButton.element);
       this.element.append(this.cardHolder);
-
-      this.cardButton.element.onclick = () => {
-        this.audio.src = `${element.audioSrc}`;
-        this.audio.currentTime = 0;
-        this.audio.play();
-      };
     }
+    return this.cardHolder;
   }
 
   renderFrontSide(element: CardModelItem, mode: string): void {
@@ -110,9 +105,6 @@ export class Card extends BaseComponent {
   renderPlayCardMode(element: CardModelItem, mode: string): void {
     this.image.src = `${element.image}`;
     this.image.classList.add('card__image');
-    this.cardButton.element.innerHTML = 'Repeat';
-    this.cardButton.removeClass('card__button');
-    this.cardButton.addClass('card__button_repeat');
-    this.cardButton.changeClassMode(mode);
+    this.image.style.pointerEvents = 'none';
   }
 }

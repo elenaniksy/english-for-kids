@@ -5,7 +5,7 @@ import { CardField } from './cardField';
 export class MainContainer extends BaseComponent {
   private mode: string;
 
-  private state: [] | CardsModel[];
+  private readonly state: [] | CardsModel[];
 
   private cardField: CardField;
 
