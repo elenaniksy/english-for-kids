@@ -88,7 +88,7 @@ export class CardField extends BaseComponent {
 
   getPlayElement() {
     if (this.cardsItems) {
-      if (this.index === this.cardsItems.length - 1) {
+      if (this.index === this.cardsItems.length) {
         this.renderEndGame();
       }
       this.activeItem = this.cardsItems[this.index];
