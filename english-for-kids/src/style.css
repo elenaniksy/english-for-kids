@@ -584,7 +584,7 @@ a {
   .card__back {
     transform: rotateY(180deg); }
 
-.button__start {
+.button__start, .button__restart {
   cursor: pointer;
   outline: none;
   border: none;
@@ -592,11 +592,26 @@ a {
   margin: 20px 0;
   border-radius: 5px;
   width: 40vw; }
-  .button__start:hover {
+  .button__start:hover, .button__restart:hover {
     transform: scale(1.02);
     transition: 0.5s ease-in-out; }
-  .button__start:active {
+  .button__start:active, .button__restart:active {
     transform: scale(0.97); }
+.button__restart {
+  background-color: #2cd261; }
+
+.img__final {
+  width: 100%;
+  max-width: 350px; }
+
+.header__final {
+  text-align: center; }
+
+.score {
+  display: block;
+  position: absolute;
+  z-index: 100;
+  top: 5px; }
 
 .app__container {
   display: flex;
@@ -731,5 +746,10 @@ a {
   flex-direction: column;
   justify-content: initial;
   align-items: initial; }
+  .column__center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; }
 
 /*# sourceMappingURL=style.css.map */

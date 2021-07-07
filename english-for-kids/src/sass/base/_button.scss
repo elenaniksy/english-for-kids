@@ -1,5 +1,5 @@
 .button {
-  &__start {
+  &__start, &__restart {
     cursor: pointer;
     outline: none;
     border: none;
@@ -16,5 +16,9 @@
     &:active {
       transform: scale(0.97);
     }
+  }
+
+  &__restart {
+    background-color: $green;
   }
 }
