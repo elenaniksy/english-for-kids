@@ -46,6 +46,7 @@ export class CardField extends BaseComponent {
   }
 
   addCardsCategory(cards: CardsModel[], mode: string): void {
+    this.removeClass('column__center');
     this.cards = cards;
     this.cards.forEach((card) => {
       new Card(this.element).renderCategory(card, mode);
@@ -130,7 +131,7 @@ export class CardField extends BaseComponent {
 
   renderEndGame(): void {
     this.element.innerHTML = '';
-    this.element.style.alignItems = 'center';
+    this.addClass('column__center');
     const finalHeader = new BaseComponent(this.element, 'h1', ['header__final']);
     const finalImage = document.createElement('img');
     finalImage.classList.add('img__final');
@@ -157,6 +158,7 @@ export class CardField extends BaseComponent {
 
   restartGame(): void {
     this.element.innerHTML = '';
+    this.removeClass('column__center');
     this.score.element.innerHTML = '';
     this.errors = 0;
     this.index = 0;
