@@ -2,6 +2,21 @@ import path from 'path';
 import express from 'express';
 import bodyParser from "body-parser";
 import cors from 'cors';
+const PORT = process.env.PORT || 3000;
 
 const app = express();
-app.use('/', express.static('./english-for-kids/dist'));
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+app.use(cors());
+
+const publicPath = path.resolve(__dirname, '../english-for-kids/dist');
+console.log(publicPath);
+const indexPath = path.resolve(__dirname, '../english-for-kids/dist/index.html');
+
+app.use(/^(?!\/api\/)/, express.static(publicPath));
+app.use(/^(?!\/api\/)/, (req, res) => {
+  res.sendFile(indexPath);
+});
+
+app.listen((process.env.PORT || 3000), ()=> console.log('Server started on http://localhost:3000'))
+
