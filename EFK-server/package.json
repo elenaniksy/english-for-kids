@@ -2,7 +2,7 @@
   "name": "efk-server",
   "private": true,
   "engines": {
-    "node": "7.18.1"
+    "node": "12.x"
   },
   "scripts": {
     "start": "npx ts-node src/app.ts",
