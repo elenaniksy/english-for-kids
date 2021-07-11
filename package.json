@@ -2,7 +2,7 @@
   "name": "efk-server",
   "private": true,
   "scripts": {
-    "start": "ts-node ./src/app.ts",
+    "start": "ts-node src/app.ts",
     "watch": "nodemon",
     "lint": "eslint src --ext .ts,.js"
   },
