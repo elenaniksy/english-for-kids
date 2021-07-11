@@ -1,7 +1,0 @@
-.column {
-  @include flex($direction: column, $align: initial, $justify: initial);
-
-  &__center {
-    @include flex($direction: column, $align: center, $justify: center);
-  }
-}
