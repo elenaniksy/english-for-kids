@@ -8,7 +8,7 @@
     "start": "npx ts-node src/app.ts",
     "watch": "npx nodemon",
     "lint": "eslint src --ext .ts,.js",
-    "build": "tsc -p .."
+    "build": "tsc -p ."
   },
   "dependencies": {
     "body-parser": "^1.19.0",
