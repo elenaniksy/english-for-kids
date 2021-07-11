@@ -10,8 +10,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cors());
 
-const publicPath = path.resolve(__dirname, 'dist');
-const indexPath = path.resolve(__dirname, 'dist/index.html');
+const publicPath = path.resolve(__dirname, 'src/dist');
+const indexPath = path.resolve(__dirname, 'src/dist/index.html');
 
 app.use(/^(?!\/api\/)/, express.static(publicPath));
 app.use(/^(?!\/api\/)/, (req: Request, res: Response) => {
