@@ -4,4 +4,4 @@ import bodyParser from "body-parser";
 import cors from 'cors';
 
 const app = express();
-app.use(express.static('./english-for-kids'));
+app.use(express.static('./english-for-kids/dist'));
