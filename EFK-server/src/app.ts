@@ -3,7 +3,7 @@ import path from 'path';
 // const path = require('path');
 import bodyParser from 'body-parser';
 import cors from 'cors';
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 80;
 const app: Application = express();
 
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -18,4 +18,4 @@ app.use(/^(?!\/api\/)/, (req: Request, res: Response) => {
   res.sendFile(indexPath);
 });
 
-app.listen(PORT, () => console.log('Server started on http://localhost:3000'));
+app.listen(PORT, () => console.log('Server started on http://localhost:80'));
