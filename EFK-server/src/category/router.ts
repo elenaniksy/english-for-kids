@@ -28,7 +28,6 @@ router.get('/:id', async (req, res) => {
 });
 
 router.post('/', async (req, res) => {
-  debugger;
   const data = req.body as Category;
   if (!data.category) return res.sendStatus(StatusCodes.BadRequest);
   try {
@@ -40,7 +39,7 @@ router.post('/', async (req, res) => {
 });
 
 router.delete('/:id', async (req, res) => {
-  const categoryId = Number(req.params.id);
+  const categoryId = String(req.params.id);
   if (!categoryId) {
     return res.status(StatusCodes.BadRequest);
   }

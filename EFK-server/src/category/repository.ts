@@ -461,8 +461,8 @@ export function createCategory(category: Category): Promise<Category> {
   return Promise.resolve(model);
 }
 
-export function deleteCategory(id: number): Promise<void> {
-  const index = categories.findIndex((cat) => cat.id === id);
+export function deleteCategory(id: string): Promise<void> {
+  const index = categories.findIndex((cat) => cat.category === id);
   if (index < 0) {
     Promise.reject(new Error('Category not found'));
   }
