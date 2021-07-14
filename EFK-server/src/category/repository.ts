@@ -469,3 +469,15 @@ export function deleteCategory(id: string): Promise<void> {
   categories.splice(index, 1);
   return Promise.resolve();
 }
+
+export function updateCategory(
+  category: string,
+  newValue: string
+): Promise<void> {
+  const index = categories.findIndex((cat) => cat.category === category);
+  if (index < 0) {
+    Promise.reject(new Error('Category not found'));
+  }
+  categories[index].category = newValue;
+  return Promise.resolve();
+}
