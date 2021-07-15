@@ -462,11 +462,11 @@ export async function initDataBase(): Promise<void> {
     defaultCards.forEach((card: Category) => {
       const model = new databaseModel({ ...card, id, items: card.items });
       model.save();
+      return Promise.resolve(model);
     });
   } catch (e) {
     console.log(e);
   }
-  return Promise.resolve();
 }
 
 export async function getCategoryById(
