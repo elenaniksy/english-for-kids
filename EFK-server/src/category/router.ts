@@ -6,7 +6,8 @@ import {
   createCategory,
   deleteCategory,
   updateCategory,
-} from './repository';
+  initDataBase,
+} from './repository_mongo';
 import { Category } from './Category';
 
 const router = Router();
@@ -63,4 +64,8 @@ router.delete('/:id', async (req, res) => {
   }
 });
 
-export default router;
+const routerObj = {
+  router: router,
+  initDataBase: initDataBase,
+};
+export default routerObj;

@@ -1,5 +1,6 @@
 [
   {
+    "id": 1,
     "category": "action",
     "items": [
       {
@@ -53,6 +54,7 @@
     ]
   },
   {
+    "id": 2,
     "category": "animals",
     "items": [
       {
@@ -106,6 +108,7 @@
     ]
   },
   {
+    "id": 3,
     "category": "colors",
     "items": [
       {
@@ -159,6 +162,7 @@
     ]
   },
   {
+    "id": 4,
     "category": "clothiers",
     "items": [
       {
@@ -212,6 +216,7 @@
     ]
   },
   {
+    "id": 5,
     "category": "emotions",
     "items": [
       {
@@ -265,6 +270,7 @@
     ]
   },
   {
+    "id": 6,
     "category": "fruits",
     "items": [
       {
@@ -318,6 +324,7 @@
     ]
   },
   {
+    "id": 7,
     "category": "transport",
     "items": [
       {
@@ -371,6 +378,7 @@
     ]
   },
   {
+    "id": 8,
     "category": "vegetables",
     "items" : [
       {
